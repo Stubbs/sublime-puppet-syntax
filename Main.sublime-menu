@@ -17,7 +17,7 @@
                         [
                             {
                                 "command": "open_file",
-                                "args": {"file": "${packages}/Vagrant/puppet-syntax.sublime-settings"},
+                                "args": {"file": "${packages}/Puppet Syntax checking/puppet-syntax.sublime-settings"},
                                 "caption": "Settings – Default"
                             },
                             {
