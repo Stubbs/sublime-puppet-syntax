@@ -5,6 +5,21 @@ import threading
 import time
 from os.path import expanduser
 
+#
+# This code is based on the PHPCS tools by 
+#    ____  ____  _____ _   _ __  __    _  _____ ____  _____ _     ______   __
+#   / __ \| __ )| ____| \ | |  \/  |  / \|_   _/ ___|| ____| |   | __ ) \ / /
+#  / / _` |  _ \|  _| |  \| | |\/| | / _ \ | | \___ \|  _| | |   |  _ \\ V / 
+# | | (_| | |_) | |___| |\  | |  | |/ ___ \| |  ___) | |___| |___| |_) || |  
+#  \ \__,_|____/|_____|_| \_|_|  |_/_/   \_\_| |____/|_____|_____|____/ |_|  
+#   \____/                                   https://github.com/benmatselby
+#
+# In fact I'd go so far as to say I deleted more code than I added to turn this into
+# the Puppet syntax checker.
+#
+# Thanks Ben. <3
+
+
 class Pref:
     @staticmethod
     def load():
@@ -69,11 +84,6 @@ class ShellCommand():
             info.dwFlags |= subprocess.STARTF_USESHOWWINDOW
             info.wShowWindow = subprocess.SW_HIDE
 
-        """
-        Fixes the fact that PHP_CodeSniffer now caches the reports to cwd()
-         - http://pear.php.net/package/PHP_CodeSniffer/download/1.5.0
-         - https://github.com/benmatselby/sublime-phpcs/issues/68
-        """
         home = expanduser("~")
         debug_message("cwd: " + home)
 
@@ -121,7 +131,7 @@ class PuppetSyntax(ShellCommand):
         report = self.shell_out(args)
         debug_message('Parsing')
         debug_message(report)
-        #lines = re.finditer('.*line="(?P<line>\d+)" column="(?P<column>\d+)" severity="(?P<severity>\w+)" message="(?P<message>.*)" source', report)
+
         lines = re.finditer('Error: Could not parse.*:(?P<message>.+) at (?P<filename>.+):(?P<line>\d+)', report)
 
         for line in lines:

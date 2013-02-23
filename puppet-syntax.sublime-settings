@@ -14,5 +14,5 @@
     "puppetsyntax_show_quick_panel": false,
 
     // Pass any extra optional parameters to Puppet.
-    "puppetsyntax_additional_args": []
+    "puppetsyntax_additional_args": {}
 }
