@@ -27,3 +27,14 @@ Automatically executes the Puppet syntax check on any puppet modules that you sa
     "puppetsyntax_additional_args": []
 }
 ```
+
+### Installation
+
+Use Sublime Text’s Package Control (Preferences -> Package Control -> Install Package -> Puppet Syntax checking) to install this plugin. This is the recommended installation path.
+
+Or
+
+Simply checkout the git repo into “~/Library/Application Support/Sublime Text 2/Packages/ or the equivalent folder on Windows or Linux.
+
+$ cd ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/
+$ git clone git@github.com:Stubbs/sublime-puppet-syntax.git Puppet-Syntax
